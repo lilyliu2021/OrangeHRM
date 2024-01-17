@@ -25,9 +25,67 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 // Login command
+///<reference types="cypress"/>
+///<reference types="cypress-xpath"/>
 
 Cypress.Commands.add("login", (username, password) => {
-    cy.get("input[placeholder='Username']").type(username);
-    cy.get( "input[placeholder='Password']").type(password);
-    cy.get("button[type='submit']").click();
+  cy.get("input[placeholder='Username']").type(username);
+  cy.get("input[placeholder='Password']").type(password);
+  cy.get("button[type='submit']").click();
+});
+
+// Delete user in case it exists
+Cypress.Commands.add("deleteUser", (username) => {
+  // Type the username in order to search it
+  cy.get("label")
+    .contains("Username")
+    .parent()
+    .parent()
+    .find("div")
+    .eq(1)
+    .type(username);
+
+  // Click on Submit
+  cy.get('button[type="submit"]').click({ force: true });
+
+  cy.wait(1000);
+
+  //Delete it in case exists
+  cy.get("body").then(($body) => {
+    if ($body.find('div.oxd-table-card > div[role="row"]').length > 0) {
+      cy.get('div.oxd-table-card > div[role="row"]').each(
+        ($element, index, $list) => {
+          if ($element.find("div").eq(3).text().includes(username)) {
+            cy.wrap($element).find("div i.bi-trash").parent().click();
+            cy.get("div.orangehrm-modal-footer > button > i.bi-trash").click();
+          }
+        }
+      );
+    }
+  });
+});
+
+Cypress.Commands.add("selectOption", (field, value) => {
+    // Find the label associated with the field and click on the parent div
+    cy.get("label").contains(field).parent().parent().find("div").eq(1).click();
+  
+    // Iterate through each option in the dropdown
+    cy.get('div[role="listbox"] > div[role="option"]').each(($element) => {
+      // Check if the option's text includes the desired value
+      if ($element.text().includes(value)) {
+        // Click on the matching option
+        cy.wrap($element).click();
+      }
+    });
+  });
+  
+
+Cypress.Commands.add("typeInField", (field, value) => {
+  cy.get("label")
+    .contains(field)
+    .parent()
+    .parent()
+    .find("div")
+    .eq(1)
+    .type(value);
 });
