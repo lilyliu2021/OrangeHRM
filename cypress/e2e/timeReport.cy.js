@@ -1,6 +1,6 @@
 describe("Project Time Report Testing", () => {
   it("Time reports", () => {
-    cy.visit("https://opensource-demo.orangehrmlive.com/");
+    cy.visit('/');
     cy.fixture("admin").then((data) => {
       cy.login(data.username, data.password);
       cy.get(

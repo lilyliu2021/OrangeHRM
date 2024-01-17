@@ -1,6 +1,6 @@
 describe("Admin testing", () => {
   beforeEach(() => {
-    cy.visit("https://opensource-demo.orangehrmlive.com/");
+    cy.visit('/login');
     cy.fixture("admin").then((data) => {
       cy.login(data.username, data.password);
       cy.get(

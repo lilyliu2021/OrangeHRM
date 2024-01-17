@@ -1,6 +1,6 @@
 describe("Login in testing", () => {
   it("login with valid credentials", () => {
-    cy.visit("https://opensource-demo.orangehrmlive.com/");
+    cy.visit('/');
     cy.fixture("admin").then((data) => {
       cy.login(data.username, data.password);
 
@@ -11,7 +11,7 @@ describe("Login in testing", () => {
   });
 
   it("login with invalid password", () => {
-    cy.visit("https://opensource-demo.orangehrmlive.com/");
+    cy.visit('/');
     cy.fixture("admin").then((data) => {
       cy.login(data.username, data.invalidPassword);
 
@@ -22,7 +22,7 @@ describe("Login in testing", () => {
     });
   });
   it("login with invalid username", () => {
-    cy.visit("https://opensource-demo.orangehrmlive.com/");
+    cy.visit('/');
     cy.fixture("admin").then((data) => {
       cy.login(data.invalidUsername, data.password);
 
@@ -34,7 +34,7 @@ describe("Login in testing", () => {
   });
 
   it("login with invalid username and password", () => {
-    cy.visit("https://opensource-demo.orangehrmlive.com/");
+    cy.visit('/');
     cy.fixture("admin").then((data) => {
       cy.login(data.invalidUsername, data.invalidPassword);
 
