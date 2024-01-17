@@ -26,7 +26,9 @@
 
 // Login command
 ///<reference types="cypress"/>
-///<reference types="cypress-xpath"/>
+
+import 'cypress-xpath';
+
 
 Cypress.Commands.add("login", (username, password) => {
   cy.get("input[placeholder='Username']").type(username);
@@ -36,7 +38,6 @@ Cypress.Commands.add("login", (username, password) => {
 
 // Delete user in case it exists
 Cypress.Commands.add("deleteUser", (username) => {
-  // Type the username in order to search it
   cy.get("label")
     .contains("Username")
     .parent()
@@ -71,9 +72,7 @@ Cypress.Commands.add("selectOption", (field, value) => {
   
     // Iterate through each option in the dropdown
     cy.get('div[role="listbox"] > div[role="option"]').each(($element) => {
-      // Check if the option's text includes the desired value
       if ($element.text().includes(value)) {
-        // Click on the matching option
         cy.wrap($element).click();
       }
     });
@@ -89,3 +88,6 @@ Cypress.Commands.add("typeInField", (field, value) => {
     .eq(1)
     .type(value);
 });
+
+
+  

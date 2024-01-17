@@ -14,10 +14,10 @@ describe("Admin testing", () => {
       );
     });
     it("Add a new user", () => {
-        //Verify if the user already exists, if so delete it
-        cy.fixture("admin").then((data) => {
-          cy.deleteUser(data.employeeUsername[0]);
-        });
+      //Verify if the user already exists, if so delete it
+    //   cy.fixture("admin").then((data) => {
+    //     cy.deleteUser(data.employeeUsername[0]);
+    //   });
 
       cy.get("button").contains("Add").click();
 
@@ -54,7 +54,7 @@ describe("Admin testing", () => {
       cy.fixture("admin").then((data) => {
         cy.typeInField("Confirm Password", data.employeePassword);
       });
-      
+
       cy.get('button[type="submit"]').click();
 
       cy.intercept(
@@ -77,7 +77,7 @@ describe("Admin testing", () => {
         cy.get('div.oxd-table-card > div[role="row"]').each(
           ($element, index, $list) => {
             expect($element.find("div").eq(3).text()).to.be.equal(
-              data.employeeUsername[0]
+              data.employeeUsername
             );
           }
         );
@@ -115,7 +115,6 @@ describe("Admin testing", () => {
   });
 
   it("clear up", () => {
-    
     cy.wait(3000);
     cy.scrollTo(0, 0);
     // Type the username in order to search it
