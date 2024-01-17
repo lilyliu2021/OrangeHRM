@@ -36,6 +36,7 @@ npm install cypress --save-dev
 ### Clone the repository to your local machine.
 ### Install project dependencies using npm.
 
+<<<<<<< HEAD
 # Run Tests in Cypress Test Runner:
 This command will download and run the latest version of Cypress for your project and open the Cypress Test Runner.
 
@@ -56,6 +57,8 @@ Run Tests:
 
 # Run tests in a headless mode for continuous integration
 
+=======
+>>>>>>> 1eac9910c65a7296f5204b6ae2d50b3c4ce5cdd4
 You can run the automation scripts by typing in the terminal:
 ```
 npm run test
