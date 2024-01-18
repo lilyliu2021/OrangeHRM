@@ -11,9 +11,9 @@ module.exports = defineConfig({
       screenshotOnRunFailure = true;
     },
     specPattern: 'cypress/e2e/*.cy.js',
-    retries: {
-      runMode: 3,
-      openMode: 3,
-      },
+    // retries: {
+    //   runMode: 3,
+    //   openMode: 3,
+    //   },
   },
 });
