@@ -1,8 +1,26 @@
-{
-    "userRole": ["Admin","ESS"],
-    "status": ["Enabled", "Disabled"],
-    "employeeName": ["Admin001","Mary","Alice"],
-    "employeeUsername": ["Tester001","Tester002","Tester003"],
-    "employeePassword": "Test123@456"
-  }
+
+
+    [{
+      "employeeUsername": "Tester001",
+      "employeePassword": "Test123@456",
+      "userRole": "Admin",
+      "employeeName": "Alice",
+      "status": "Enabled"
+    },
+    {
+      "employeeUsername": "Tester002",
+      "employeePassword": "Test123@456",
+      "userRole": "ESS",
+      "employeeName": "Alice",
+      "status": "Enabled"
+    },
+    {
+      "employeeUsername": "Tester003",
+      "employeePassword": "Test123@456",
+      "userRole": "Admin",
+      "employeeName": "Alice",
+      "status": "Disabled"
+    }
+  ]
+  
   

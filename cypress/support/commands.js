@@ -37,6 +37,7 @@ Cypress.Commands.add("login", (username, password) => {
 
 // Delete user in case it exists
 Cypress.Commands.add("deleteUser", (username) => {
+  //search the username
   cy.get("label")
     .contains("Username")
     .parent()
@@ -45,7 +46,6 @@ Cypress.Commands.add("deleteUser", (username) => {
     .eq(1)
     .type(username);
 
-  // Click on Submit
   cy.get('button[type="submit"]').click({ force: true });
 
   cy.wait(1000);
@@ -58,6 +58,7 @@ Cypress.Commands.add("deleteUser", (username) => {
           if ($element.find("div").eq(3).text().includes(username)) {
             cy.wrap($element).find("div i.bi-trash").parent().click();
             cy.get("div.orangehrm-modal-footer > button > i.bi-trash").click();
+            cy.log('user is deleted')
           }
         }
       );
