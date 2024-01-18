@@ -1,0 +1,8 @@
+{
+    "userRole": ["Admin","ESS"],
+    "status": ["Enabled", "Disabled"],
+    "employeeName": ["Admin001","Mary","Alice"],
+    "employeeUsername": ["Tester001","Tester002","Tester003"],
+    "employeePassword": "Test123@456"
+  }
+  

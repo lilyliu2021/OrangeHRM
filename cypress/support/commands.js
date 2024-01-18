@@ -89,5 +89,14 @@ Cypress.Commands.add("typeInField", (field, value) => {
     .type(value);
 });
 
+Cypress.Commands.add("logoutOrangeHRM", () => {
+  // cy.request("/web/index.php/auth/logout").as("Logout Successfully");
+  cy.intercept("/web/index.php/core/i18n/messages**").as("messages");
+  cy.get(".oxd-userdropdown-tab").click();
+  cy.contains("[role=menuitem]", "Logout").click();
+
+  cy.wait("@messages");
+});
+
 
   
