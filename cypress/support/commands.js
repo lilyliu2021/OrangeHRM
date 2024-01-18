@@ -27,8 +27,7 @@
 // Login command
 ///<reference types="cypress"/>
 
-import 'cypress-xpath';
-
+import "cypress-xpath";
 
 Cypress.Commands.add("login", (username, password) => {
   cy.get("input[placeholder='Username']").type(username);
@@ -67,17 +66,16 @@ Cypress.Commands.add("deleteUser", (username) => {
 });
 
 Cypress.Commands.add("selectOption", (field, value) => {
-    // Find the label associated with the field and click on the parent div
-    cy.get("label").contains(field).parent().parent().find("div").eq(1).click();
-  
-    // Iterate through each option in the dropdown
-    cy.get('div[role="listbox"] > div[role="option"]').each(($element) => {
-      if ($element.text().includes(value)) {
-        cy.wrap($element).click();
-      }
-    });
+  // Find the label associated with the field and click on the parent div
+  cy.get("label").contains(field).parent().parent().find("div").eq(1).click();
+
+  // Iterate through each option in the dropdown
+  cy.get('div[role="listbox"] > div[role="option"]').each(($element) => {
+    if ($element.text().includes(value)) {
+      cy.wrap($element).click();
+    }
   });
-  
+});
 
 Cypress.Commands.add("typeInField", (field, value) => {
   cy.get("label")
@@ -90,13 +88,6 @@ Cypress.Commands.add("typeInField", (field, value) => {
 });
 
 Cypress.Commands.add("logoutOrangeHRM", () => {
-  // cy.request("/web/index.php/auth/logout").as("Logout Successfully");
-  cy.intercept("/web/index.php/core/i18n/messages**").as("messages");
   cy.get(".oxd-userdropdown-tab").click();
   cy.contains("[role=menuitem]", "Logout").click();
-
-  cy.wait("@messages");
 });
-
-
-  

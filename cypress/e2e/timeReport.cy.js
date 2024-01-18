@@ -16,7 +16,7 @@ describe("Project Time Report Testing", () => {
       );
     });
     cy.get('li[class*="topbar"]').contains("Reports").click();
-    
+
     const timeReport = new TimeReport();
     timeReport.setProjectName("Apache Software Foundation");
 

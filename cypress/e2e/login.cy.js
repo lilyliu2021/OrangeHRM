@@ -1,6 +1,6 @@
 describe("Login in testing", () => {
   it("login with valid credentials", () => {
-    cy.visit('/');
+    cy.visit("/");
     cy.fixture("loginInfo").then((data) => {
       cy.login(data.username, data.password);
 
@@ -12,8 +12,8 @@ describe("Login in testing", () => {
     });
   });
 
-  it("login with invalid password", () => {
-    cy.visit('/');
+  it("login with valid username and invalid password", () => {
+    cy.visit("/");
     cy.fixture("loginInfo").then((data) => {
       cy.login(data.username, data.invalidPassword);
 
@@ -23,8 +23,9 @@ describe("Login in testing", () => {
       );
     });
   });
-  it("login with invalid username", () => {
-    cy.visit('/');
+
+  it("login with invalid username and valid password", () => {
+    cy.visit("/");
     cy.fixture("loginInfo").then((data) => {
       cy.login(data.invalidUsername, data.password);
 
@@ -37,7 +38,7 @@ describe("Login in testing", () => {
   });
 
   it("login with invalid username and password", () => {
-    cy.visit('/');
+    cy.visit("/");
     cy.fixture("loginInfo").then((data) => {
       cy.login(data.invalidUsername, data.invalidPassword);
 

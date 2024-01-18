@@ -1,7 +1,6 @@
 describe("Admin testing", () => {
-
   beforeEach(() => {
-    cy.visit('/');
+    cy.visit("/");
     cy.fixture("loginInfo").then((data) => {
       cy.login(data.username, data.password);
       cy.get(
@@ -16,8 +15,7 @@ describe("Admin testing", () => {
     });
 
     it("Add a new user", () => {
-      
-     //Verify if the user already exists, if so delete it
+      //Verify if the user already exists, if so delete it
       cy.fixture("adminInfo").then((data) => {
         cy.deleteUser(data.employeeUsername[0]);
       });
@@ -32,18 +30,17 @@ describe("Admin testing", () => {
         cy.selectOption("Status", data.status[0]);
       });
 
-      
       cy.fixture("adminInfo").then((data) => {
         cy.typeInField("Employee Name", data.employeeName[0]);
 
         cy.wait(2000);
 
-        // cy.get('div[role="listbox"]')
-        //   .find(".oxd-autocomplete-option")
-        //   .each(($element, index, $list) => {
-        //     if ($element.text().includes(data.employeeName[0]))
-        //       cy.wrap($element).click();
-        //   });
+        cy.get('div[role="listbox"]')
+          .find(".oxd-autocomplete-option")
+          .each(($element, index, $list) => {
+            if ($element.text().includes(data.employeeName[0]))
+              cy.wrap($element).click();
+          });
       });
 
       cy.fixture("adminInfo").then((data) => {
@@ -59,7 +56,7 @@ describe("Admin testing", () => {
       });
 
       cy.get('button[type="submit"]').click();
-/*
+      /*
       // cy.intercept(
       //   "/web/index.php/api/v2/admin/users?limit=50&offset=0&sortField=u.userName&sortOrder=ASC"
       // ).as("users");
@@ -73,7 +70,7 @@ describe("Admin testing", () => {
       });
 
       cy.get('button[type="submit"]').click({ force: true });
-      cy.log('User is added')
+      cy.log("User is added");
       //Verify the recently added user
 
       cy.fixture("adminInfo").then((data) => {
@@ -93,7 +90,7 @@ describe("Admin testing", () => {
     // Type the username in order to search it
     cy.fixture("adminInfo").then((data) => {
       cy.typeInField("Username", data.employeeUsername[0]);
-    });    
+    });
     cy.get('button[type="submit"]').click({ force: true });
 
     cy.fixture("adminInfo").then((data) => {
@@ -110,7 +107,7 @@ describe("Admin testing", () => {
 
           // Continue with the existing assertion
           expect(usernameInTable).to.be.equal(expectedUsername);
-          cy.log('User is found!')
+          cy.log("User is found!");
         }
       );
     });
@@ -142,7 +139,7 @@ describe("Admin testing", () => {
           // Continue with the existing assertion
           expect(usernameInTable).to.be.equal(expectedUsername);
           cy.get(".oxd-icon.bi-trash").click();
-          cy.log("User is deleted!")
+          cy.log("User is deleted!");
         }
       );
     });
