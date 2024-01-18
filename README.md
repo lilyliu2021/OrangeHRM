@@ -63,7 +63,7 @@ You can run the automation scripts by typing in the terminal:
 npm run test
 
 ```
-# generate a test report using Cypress and Mochawesome
+# Generate a test report using Cypress and Mochawesome
 Mochawesome generates a detailed HTML report with information about test suites, test cases, and their results.
 
 ## Setup
