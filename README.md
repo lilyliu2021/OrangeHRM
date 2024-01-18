@@ -1,5 +1,5 @@
 # How to Run Tests
-This document provides instructions on how to set up and run tests for the OrangeHRM demo web app.The test cover login, user creation, created user details verification, view and verify project time report.
+This document provides instructions on how to set up and run tests for the OrangeHRM demo web app.The tests cover login, user creation, created user details verification, view and verify project time report.
 
 # Tools/Technologies:
 Cypress
