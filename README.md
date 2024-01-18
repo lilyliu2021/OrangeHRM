@@ -23,21 +23,43 @@ Node.js 20.x and above
 
 
 ### Prerequisites
+### Installation
 
 - Install Node.js
+ Download & install Node.js
+
 - Install VS Code
+ Download & install visual studio code (VSCode)
+
+ ### Clone the repository to your local machine.
+
+- Create package.json file
+```
+npm -i init
+
+```
 
 - Install Cypress
-
 ```
 npm install cypress --save-dev
 
 ```
 
-## Installation
-### Clone the repository to your local machine.
-### Install project dependencies using npm.
+-To use XPath in Cypress, install XPath plugins
+```
+npm install -D cypress-xpath
 
+```
+Add reference to commands.js: 
+```
+/// <reference types=”cypress-xpath” />
+
+```
+e2e.js: 
+```
+require(‘cypress-xpath’) 
+
+```
 # Run Tests in Cypress Test Runner:
 This command will download and run the latest version of Cypress for your project and open the Cypress Test Runner.
 
@@ -63,6 +85,7 @@ You can run the automation scripts by typing in the terminal:
 npm run test
 
 ```
+
 # Generate a test report using Cypress and Mochawesome
 Mochawesome generates a detailed HTML report with information about test suites, test cases, and their results.
 
