@@ -26,10 +26,10 @@ Node.js 20.x and above
 ### Installation
 
 - Install Node.js
- Download & install Node.js
+ https://nodejs.org/en/download
 
-- Install VS Code
- Download & install visual studio code (VSCode)
+- Install Visual Studio Code (VS Code)
+ https://code.visualstudio.com/download
 
  ### Clone the repository to your local machine.
 
