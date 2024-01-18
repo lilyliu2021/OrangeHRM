@@ -53,7 +53,7 @@ The Cypress Test Runner will open, showing a list of your test files on the left
 Run Tests:
 
 - Click on a test file to run all tests in that file.
-- Click on a specific test within a file to run only that test.
+- Click on a specific test within a file to run only that test.  
 - You can also run tests in headless mode by clicking on the "Run All Tests" button at the top-right of the Cypress Test Runner.
 
 # Run tests in a headless mode for continuous integration
