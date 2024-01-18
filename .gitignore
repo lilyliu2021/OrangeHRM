@@ -1,3 +1,4 @@
-/report/
-/report/*.html
-/report/*.png
+cypress/reports
+cypress/screenshots
+cypress/videos
+cypress/downloads
