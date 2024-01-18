@@ -1,9 +1,9 @@
 # How to Run Tests
-This document provides instructions on how to set up and run tests for the OrangeHRM demo web app.The test cover login, user creation, created user details verification, view and verify project time report.
+This document provides instructions on how to set up and run tests for the OrangeHRM demo web app.The tests cover login, user creation, created user details verification, view and verify project time report.
 
 # Tools/Technologies:
-Cypress
-Programming Language: JS
+### Cypress
+### Programming Language: JavaSript
 
 # System requirements
 ## Operating System
@@ -53,7 +53,7 @@ The Cypress Test Runner will open, showing a list of your test files on the left
 Run Tests:
 
 - Click on a test file to run all tests in that file.
-- Click on a specific test within a file to run only that test.
+- Click on a specific test within a file to run only that test.  
 - You can also run tests in headless mode by clicking on the "Run All Tests" button at the top-right of the Cypress Test Runner.
 
 # Run tests in a headless mode for continuous integration
@@ -63,7 +63,7 @@ You can run the automation scripts by typing in the terminal:
 npm run test
 
 ```
-# generate a test report using Cypress and Mochawesome
+# Generate a test report using Cypress and Mochawesome
 Mochawesome generates a detailed HTML report with information about test suites, test cases, and their results.
 
 ## Setup
