@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker";
+import { faker } from "@faker-js/faker/locale/en_CA";
 import Candidate from "../support/pageObjects/addCandidate";
 
 const firstName = faker.person.firstName();
@@ -27,17 +27,14 @@ describe("Recruitment testing", () => {
       "Add Candidate"
     );
 
-    // cy.get('input[placeholder="First Name"]').type(firstName);
-    // cy.get('input[placeholder="Last Name"]').type(lastName);
-    // cy.selectOption("Vacancy", "Associate IT Manager");
-    // cy.xpath('(//input[@placeholder="Type here"])[1]').type(email);
-    // cy.get('button[type="submit"]').click();
     const candidate = new Candidate();
     candidate.setFirstName(firstName);
     candidate.setLastName(lastName);
-    candidate.setVacancy("Vacancy", "Associate IT Manager");
+    candidate.setVacancy();
     candidate.setEmail(email);
+    candidate.setContactNumber();
     candidate.clickSaveButton();
+
   });
 
   it("Verify the added candidate", () => {
@@ -90,7 +87,7 @@ describe("Recruitment testing", () => {
     cy.get('div.oxd-table-card > div[role="row"]').each(
       ($element, index, $list) => {
         const candidateInTable = $element.find("div").eq(3).text();
-
+        const expectCandidate = firstName + "  " + lastName;
         cy.log(candidateInTable);
         cy.get(".oxd-table-card > .oxd-table-row > :nth-child(3) > div").should(
           "contain",
@@ -102,7 +99,7 @@ describe("Recruitment testing", () => {
         //   '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div[3]/div/div[7]/div/button[2]'
         // ).click();
         cy.get(".oxd-icon.bi-eye-fill").parent().find(':nth-child(2)').click();
-        
+
         cy.xpath('//button[normalize-space()="Yes, Delete"]').click();
         cy.log("User is deleted!");
       }

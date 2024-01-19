@@ -19,25 +19,37 @@ class Candidate {
     cy.get(this.lastNameInput).type(lastName);
   }
 
-  setVacancy(vacancy,value) {
-    cy.selectOption(this.vacancyInput, "Associate IT Manager");    
+  setVacancy() {
+    const randomNumber = Math.floor(Math.random() * 7);
+    cy.fixture("candidate").then((data) => {
+      cy.selectOption(this.vacancyInput, data.vacancy[randomNumber]);
+    });
   }
 
   setEmail(email) {
-    //cy.typeInField(email);
     cy.xpath('(//input[@placeholder="Type here"])[1]').type(email);
   }
 
-  setContactNumber(contactNumber) {
-    cy.typeInField(contactNumber);
+  setContactNumber() {
+    const areaCode = Math.floor(Math.random() * 1000)
+      .toString()
+      .padStart(3, "0");
+    const firstPart = Math.floor(Math.random() * 1000)
+      .toString()
+      .padStart(3, "0");
+    const secondPart = Math.floor(Math.random() * 10000)
+      .toString()
+      .padStart(4, "0");
+    const contactNumber = `${areaCode}-${firstPart}-${secondPart}`;
+    cy.typeInField(this.contactNumberInput, contactNumber);
   }
 
   setKeywords(keywords) {
-    cy.typeInField(keywords);
+    cy.typeInField(this.keywordsInput, keywords);
   }
 
   setNotes(notes) {
-    cy.typeInField(userData.notes);
+    cy.typeInField(this.notesInput.notes);
   }
 
   setResume(resume) {
