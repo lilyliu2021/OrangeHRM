@@ -50,12 +50,12 @@ npm install cypress --save-dev
 npm install -D cypress-xpath
 
 ```
-Add reference to commands.js: 
+Add reference to cypress/support/commands.js: 
 ```
 /// <reference types=”cypress-xpath” />
 
 ```
-e2e.js: 
+cypress/support/e2e.js: 
 ```
 require(‘cypress-xpath’) 
 
