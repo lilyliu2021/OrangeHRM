@@ -45,7 +45,7 @@ npm install cypress --save-dev
 
 ```
 
--To use XPath in Cypress, install XPath plugins
+- To use XPath in Cypress, install XPath plugins
 ```
 npm install -D cypress-xpath
 
