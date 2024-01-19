@@ -15,7 +15,7 @@ describe("Admin user testing", () => {
     });
   });
 
-  it.skip("Add a new admin user", () => {
+  it("Add a new admin user", () => {
     cy.fixture("adminInfo").then((data) => {
       data.forEach((user) => {
         cy.log(user.employeeUserName);
