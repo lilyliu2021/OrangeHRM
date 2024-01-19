@@ -1,5 +1,5 @@
 # How to Run Tests
-This document provides instructions on how to set up and run tests for the OrangeHRM demo web app.The tests cover login, user creation, created user details verification, view and verify project time report.
+This document provides instructions on how to set up and run tests for the OrangeHRM demo web app.The tests cover login, user creation, created user details verification, view and verify project time report, candidate creation.
 
 # Tools/Technologies:
 ### Cypress
@@ -60,6 +60,13 @@ cypress/support/e2e.js:
 require(‘cypress-xpath’) 
 
 ```
+## To generate dynamic data for Test Automation, install Faker library
+Faker library is used in Candidate creation tests (First name, Last Name, Email etc.)
+```
+npm install @faker-js/faker --save-dev
+
+```
+
 ## Run Tests in Cypress Test Runner:
 This command will download and run the latest version of Cypress for your project and open the Cypress Test Runner.
 
