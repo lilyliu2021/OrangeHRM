@@ -20,7 +20,7 @@ class TimeReport {
     });
   }
 
-  setToProjectName() {
+  setToProjectDate() {
     cy.get(
       ":nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-date-wrapper > .oxd-date-input > .oxd-input"
     );

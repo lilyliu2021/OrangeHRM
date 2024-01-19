@@ -22,7 +22,7 @@ describe("Project Time Report Testing", () => {
 
     timeReport.setFromProjectDate();
 
-    timeReport.setToProjectName();
+    timeReport.setToProjectDate();
 
     timeReport.clickViewButton();
 
