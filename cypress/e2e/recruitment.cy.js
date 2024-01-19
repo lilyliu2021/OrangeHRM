@@ -98,9 +98,11 @@ describe("Recruitment testing", () => {
         );
 
         cy.log("User is found!");
-        cy.get(
-          '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div[3]/div/div[7]/div/button[2]'
-        ).click();
+        // cy.get(
+        //   '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div[3]/div/div[7]/div/button[2]'
+        // ).click();
+        cy.get(".oxd-icon.bi-eye-fill").parent().find(':nth-child(2)').click();
+        
         cy.xpath('//button[normalize-space()="Yes, Delete"]').click();
         cy.log("User is deleted!");
       }
