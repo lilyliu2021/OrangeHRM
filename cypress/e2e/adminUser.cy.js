@@ -69,7 +69,7 @@ describe("Admin user testing", () => {
         cy.log(usernameInTable);
         cy.get(".oxd-table-card > .oxd-table-row > :nth-child(2) > div").should(
           "contain",
-          userNameAdded
+          expectedUsername
         );
         cy.xpath(`//div[contains(text(),"${userRoleAdded}")]`).should(
           "be.visible"
@@ -106,7 +106,7 @@ describe("Admin user testing", () => {
         cy.log(usernameInTable);
         cy.get(".oxd-table-card > .oxd-table-row > :nth-child(2) > div").should(
           "contain",
-          userNameToDelete
+          expectedUsername
         );
         cy.xpath(`//div[contains(text(),"${userRoleToDelete}")]`).should(
           "be.visible"
@@ -126,4 +126,9 @@ describe("Admin user testing", () => {
       }
     );
   });
+
+  after(()=>{
+    cy.logoutOrangeHRM();
+  });
+
 });
