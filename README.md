@@ -1,5 +1,5 @@
 # How to Run Tests
-This document provides instructions on how to set up and run tests for the OrangeHRM demo web app.The tests cover login, admin user creation, created admin user details verification,created admin user clear up, view and verify project time report, candidate creation,created candidate details verification,and created candidate clear up.
+This document provides instructions on setting up and running tests for the OrangeHRM demo web app. The tests include login, admin user creation, verification of created admin user details, clearing up created admin user data, viewing and verifying project time reports, candidate creation, verification of created candidate details, and clearing up created candidate data.
 
 # Tools/Technologies:
 ### Cypress
