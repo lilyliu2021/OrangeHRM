@@ -34,19 +34,20 @@ describe("Recruitment testing", () => {
     candidate.setEmail(email);
     candidate.setContactNumber();
     candidate.clickSaveButton();
-
   });
 
   it("Verify the added candidate", () => {
     cy.scrollTo(0, 0);
-    cy.typeInField("Candidate Name", firstName);
-    cy.wait(3000);
+    cy.get("input[placeholder='Type for hints...']").click();
+    cy.get(".oxd-autocomplete-text-input > input").type(firstName);
+    cy.wait(2000);
 
     cy.get('div[role="listbox"]')
       .find(".oxd-autocomplete-option")
       .each(($element, index, $list) => {
         if ($element.text().includes(firstName)) cy.wrap($element).click();
       });
+
     cy.get('button[type="submit"]').click({ force: true });
 
     cy.get('div.oxd-table-card > div[role="row"]').each(
@@ -73,16 +74,17 @@ describe("Recruitment testing", () => {
 
   it("Delete the added candidate", () => {
     cy.scrollTo(0, 0);
-    cy.typeInField("Candidate Name", firstName);
-    cy.wait(3000);
+    cy.get("input[placeholder='Type for hints...']").click();
+    cy.get(".oxd-autocomplete-text-input > input").type(firstName);
+    cy.wait(2000);
 
     cy.get('div[role="listbox"]')
       .find(".oxd-autocomplete-option")
       .each(($element, index, $list) => {
-        if ($element.text().includes("Susie")) cy.wrap($element).click();
+        if ($element.text().includes(firstName)) cy.wrap($element).click();
       });
+
     cy.get('button[type="submit"]').click({ force: true });
-    cy.wait(3000);
 
     cy.get('div.oxd-table-card > div[role="row"]').each(
       ($element, index, $list) => {
@@ -91,14 +93,12 @@ describe("Recruitment testing", () => {
         cy.log(candidateInTable);
         cy.get(".oxd-table-card > .oxd-table-row > :nth-child(3) > div").should(
           "contain",
-          expectCandidate
+          firstName
         );
 
         cy.log("User is found!");
-        // cy.get(
-        //   '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div[3]/div/div[7]/div/button[2]'
-        // ).click();
-        cy.get(".oxd-icon.bi-eye-fill").parent().find(':nth-child(2)').click();
+
+        cy.get(".oxd-table-cell-actions > :nth-child(2) > .oxd-icon").click();
 
         cy.xpath('//button[normalize-space()="Yes, Delete"]').click();
         cy.log("User is deleted!");

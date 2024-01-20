@@ -27,7 +27,7 @@ class Candidate {
   }
 
   setEmail(email) {
-    cy.xpath('(//input[@placeholder="Type here"])[1]').type(email);
+    cy.xpath('(//input[@placeholder="Type here"])[1]').type(email,{force: true});
   }
 
   setContactNumber() {

@@ -79,13 +79,14 @@ Cypress.Commands.add("selectOption", (field, value) => {
 });
 
 Cypress.Commands.add("typeInField", (field, value) => {
-  cy.get("label")
-    .contains(field)
-    .parent()
-    .parent()
-    .find("div")
-    .eq(1)
-    .type(value);
+  cy.get(".oxd-input-group")
+  .find(`.oxd-label:contains(${field})`)
+  .eq(0)
+  .parents()
+  .eq(1)
+  .find("input")
+  .clear()
+  .type(value);
 });
 
 Cypress.Commands.add("logoutOrangeHRM", () => {
