@@ -3,7 +3,7 @@ This document provides instructions on how to set up and run tests for the Orang
 
 # Tools/Technologies:
 ### Cypress
-### Programming Language: JavaSript
+### Programming Language: JavaScript
 
 # System requirements
 ## Operating System
