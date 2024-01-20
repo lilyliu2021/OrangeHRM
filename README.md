@@ -61,7 +61,7 @@ require(‘cypress-xpath’)
 
 ```
 ## To generate dynamic data for Test Automation, install Faker library
-Faker library is used in Candidate creation tests (First name, Last Name, Email etc.)
+Faker library is used in Candidate creation tests (First Name, Last Name, Email, Contact Number  etc.)
 ```
 npm install @faker-js/faker --save-dev
 
