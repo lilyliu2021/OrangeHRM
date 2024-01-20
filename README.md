@@ -31,7 +31,7 @@ Node.js 20.x and above
 - Install Visual Studio Code (VS Code)
  https://code.visualstudio.com/download
 
-### Clone the repository to your local machine.
+- Clone the repository to your local machine.
 
 - Create package.json file
 ```
