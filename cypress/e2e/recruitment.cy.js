@@ -37,72 +37,23 @@ describe("Recruitment testing", () => {
   });
 
   it("Verify the added candidate", () => {
-    cy.scrollTo(0, 0);
-    cy.get("input[placeholder='Type for hints...']").click();
-    cy.get(".oxd-autocomplete-text-input > input").type(firstName);
-    cy.wait(2000);
+    const expectCandidate = firstName + "  " + lastName;
 
-    cy.get('div[role="listbox"]')
-      .find(".oxd-autocomplete-option")
-      .each(($element, index, $list) => {
-        if ($element.text().includes(firstName)) cy.wrap($element).click();
-      });
+    cy.searchCandidate(firstName, lastName);
+    cy.get(".oxd-icon.bi-eye-fill").click();
+    cy.wait(3000);
 
-    cy.get('button[type="submit"]').click({ force: true });
-
-    cy.get('div.oxd-table-card > div[role="row"]').each(
-      ($element, index, $list) => {
-        const candidateInTable = $element.find("div").eq(3).text();
-        const expectCandidate = firstName + "  " + lastName;
-        cy.log(candidateInTable);
-        cy.get(".oxd-table-card > .oxd-table-row > :nth-child(3) > div").should(
-          "contain",
-          firstName
-        );
-
-        cy.log("User is found!");
-        cy.get(".oxd-icon.bi-eye-fill").click();
-        cy.wait(3000);
-
-        cy.xpath('(//p[@class="oxd-text oxd-text--p"])[1]').should(
-          "have.text",
-          expectCandidate
-        );
-      }
+    cy.xpath('(//p[@class="oxd-text oxd-text--p"])[1]').should(
+      "have.text",
+      expectCandidate
     );
   });
 
   it("Delete the added candidate", () => {
-    cy.scrollTo(0, 0);
-    cy.get("input[placeholder='Type for hints...']").click();
-    cy.get(".oxd-autocomplete-text-input > input").type(firstName);
-    cy.wait(2000);
+    cy.searchCandidate(firstName, lastName);
+    cy.get(".oxd-table-cell-actions > :nth-child(2) > .oxd-icon").click();
 
-    cy.get('div[role="listbox"]')
-      .find(".oxd-autocomplete-option")
-      .each(($element, index, $list) => {
-        if ($element.text().includes(firstName)) cy.wrap($element).click();
-      });
-
-    cy.get('button[type="submit"]').click({ force: true });
-
-    cy.get('div.oxd-table-card > div[role="row"]').each(
-      ($element, index, $list) => {
-        const candidateInTable = $element.find("div").eq(3).text();
-        const expectCandidate = firstName + "  " + lastName;
-        cy.log(candidateInTable);
-        cy.get(".oxd-table-card > .oxd-table-row > :nth-child(3) > div").should(
-          "contain",
-          firstName
-        );
-
-        cy.log("User is found!");
-
-        cy.get(".oxd-table-cell-actions > :nth-child(2) > .oxd-icon").click();
-
-        cy.xpath('//button[normalize-space()="Yes, Delete"]').click();
-        cy.log("User is deleted!");
-      }
-    );
+    cy.xpath('//button[normalize-space()="Yes, Delete"]').click();
+    cy.log("User is deleted!");
   });
 });

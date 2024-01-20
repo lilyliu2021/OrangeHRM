@@ -58,7 +58,7 @@ Cypress.Commands.add("deleteUser", (username) => {
           if ($element.find("div").eq(3).text().includes(username)) {
             cy.wrap($element).find("div i.bi-trash").parent().click();
             cy.get("div.orangehrm-modal-footer > button > i.bi-trash").click();
-            cy.log('user is deleted')
+            cy.log("user is deleted");
           }
         }
       );
@@ -80,16 +80,57 @@ Cypress.Commands.add("selectOption", (field, value) => {
 
 Cypress.Commands.add("typeInField", (field, value) => {
   cy.get(".oxd-input-group")
-  .find(`.oxd-label:contains(${field})`)
-  .eq(0)
-  .parents()
-  .eq(1)
-  .find("input")
-  .clear()
-  .type(value);
+    .find(`.oxd-label:contains(${field})`)
+    .eq(0)
+    .parents()
+    .eq(1)
+    .find("input")
+    .clear()
+    .type(value);
 });
 
 Cypress.Commands.add("logoutOrangeHRM", () => {
   cy.get(".oxd-userdropdown-tab").click();
   cy.contains("[role=menuitem]", "Logout").click();
+});
+
+Cypress.Commands.add("selectDateFromCalendar", (field, date) => {
+  cy.get(".oxd-input-group")
+    .find(`.oxd-label:contains(${field})`)
+    .eq(0)
+    .parents()
+    .eq(1)
+    .find(".oxd-date-input > .oxd-input")
+    .clear()
+    .type(date);
+  cy.contains(".oxd-date-input-link", "Close").click();
+});
+
+Cypress.Commands.add("searchCandidate", (candidateFirstName,candidateLastName) => {
+  cy.scrollTo(0, 0);
+  cy.get("input[placeholder='Type for hints...']").click();
+  cy.get(".oxd-autocomplete-text-input > input").type(candidateFirstName);
+  cy.wait(2000);
+
+  cy.get('div[role="listbox"]')
+    .find(".oxd-autocomplete-option")
+    .each(($element, index, $list) => {
+      if ($element.text().includes(candidateFirstName)) cy.wrap($element).click();
+    });
+
+  cy.get('button[type="submit"]').click({ force: true });
+
+  cy.get('div.oxd-table-card > div[role="row"]').each(
+    ($element, index, $list) => {
+      const candidateInTable = $element.find("div").eq(3).text();
+      const expectCandidate = candidateFirstName + "  " + candidateLastName;
+      cy.log(candidateInTable);
+      cy.get(".oxd-table-card > .oxd-table-row > :nth-child(3) > div").should(
+        "contain",
+        expectCandidate
+      );
+
+      cy.log("Candidate is found!");
+    }
+  );
 });
