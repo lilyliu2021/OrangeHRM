@@ -56,4 +56,9 @@ describe("Recruitment testing", () => {
     cy.xpath('//button[normalize-space()="Yes, Delete"]').click();
     cy.log("User is deleted!");
   });
+
+  after(()=>{
+    cy.logoutOrangeHRM();
+  });
+
 });
