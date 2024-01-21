@@ -89,12 +89,12 @@ npm run test
 Mochawesome generates a detailed HTML report with information about test suites, test cases, and their results.
 
 ## Setup
-1.Install cypress-mochawesome-reporter
+- 1.Install cypress-mochawesome-reporter
 
 ```
 npm i --save-dev cypress-mochawesome-reporter
 ```
-2.Change cypress reporter & setup hooks
+- 2.Change cypress reporter & setup hooks
 
 Edit config file (cypress.config.js by default)
 
@@ -110,16 +110,17 @@ module.exports = defineConfig({
   },
 });
 ```
-3.Add to cypress/support/e2e.js
+- 3.Add to cypress/support/e2e.js
 ```
 import 'cypress-mochawesome-reporter/register';
 ```
-4.Run all tests and generate report
+- 4.Run all tests and generate report
 This command is used in Cypress to execute end-to-end tests in headless mode.
 ```
 npx cypress run
 ```
-5.Run the specified test file and generate report
+- 5.Run the specified test file and generate report
+
 Replace "path/to/your/test-file.spec.js" with the actual path to your specific test file. This command will execute only the specified test file.
 ```
 npx cypress run --spec "path/to/your/test-file.spec.js"
