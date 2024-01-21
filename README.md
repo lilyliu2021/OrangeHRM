@@ -141,4 +141,4 @@ For example :
 ```
 npx cypress run -spec C:\OrangeHRM\cypress\e2e\recruitment.cy.js
 ```
-![Sample test report:](../images/candidateTestReport.png)
+![Sample test report:](https://github.com/lilyliu2021/OrangeHRM/blob/main/cypress/downloads/images/candidateTestReport.png)
