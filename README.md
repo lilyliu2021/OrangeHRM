@@ -36,35 +36,29 @@ Node.js 20.x and above
 - Create package.json file
 ```
 npm -i init
-
 ```
 
 - Install Cypress
 ```
 npm install cypress --save-dev
-
 ```
 
 - To use XPath in Cypress, install XPath plugins
 ```
 npm install -D cypress-xpath
-
 ```
 Add reference to cypress/support/commands.js: 
 ```
 /// <reference types=”cypress-xpath” />
-
 ```
 cypress/support/e2e.js: 
 ```
 require(‘cypress-xpath’) 
-
 ```
 ## To generate dynamic data for Test Automation, install Faker library
 Faker library is used in Candidate creation tests (First Name, Last Name, Email, Contact Number  etc.)
 ```
 npm install @faker-js/faker --save-dev
-
 ```
 
 ## Run Tests in Cypress Test Runner:
@@ -74,7 +68,6 @@ This command will download and run the latest version of Cypress for your projec
 
 ```
 npx cypress open
-
 ```
 
 The Cypress Test Runner will open, showing a list of your test files on the left and providing a graphical interface for running and interacting with your tests.
@@ -90,7 +83,6 @@ You can run the automation scripts by typing in the terminal:
 
 ```
 npm run test
-
 ```
 
 # Generate a test report using Cypress and Mochawesome
@@ -101,7 +93,6 @@ Mochawesome generates a detailed HTML report with information about test suites,
 
 ```
 npm i --save-dev cypress-mochawesome-reporter
-
 ```
 2.Change cypress reporter & setup hooks
 
@@ -118,27 +109,25 @@ module.exports = defineConfig({
     },
   },
 });
-
 ```
 3.Add to cypress/support/e2e.js
 ```
 import 'cypress-mochawesome-reporter/register';
-
 ```
 4.Run all tests and generate report
 This command is used in Cypress to execute end-to-end tests in headless mode.
 ```
 npx cypress run
-
 ```
 5.Run the specified test file and generate report
 Replace "path/to/your/test-file.spec.js" with the actual path to your specific test file. This command will execute only the specified test file.
 ```
 npx cypress run --spec "path/to/your/test-file.spec.js"
-
 ```
 For example :
 ```
 npx cypress run -spec C:\OrangeHRM\cypress\e2e\recruitment.cy.js
 ```
+Candidate testing result report sample:
+
 ![Sample test report:](https://github.com/lilyliu2021/OrangeHRM/blob/main/cypress/downloads/images/candidateTestReport.png)
