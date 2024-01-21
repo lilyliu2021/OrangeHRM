@@ -28,4 +28,9 @@ describe("Project Time Report Testing", () => {
 
     timeReport.VerifyProjectTimeReport();
   });
+
+  after(()=>{
+    cy.logoutOrangeHRM();
+  });
+
 });
