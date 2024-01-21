@@ -1,3 +1,5 @@
+import { afterEach } from "mocha";
+
 describe("Login in testing", () => {
   it("login with valid credentials", () => {
     cy.visit("/");
@@ -7,8 +9,6 @@ describe("Login in testing", () => {
       cy.get(
         ".oxd-text.oxd-text--h6.oxd-topbar-header-breadcrumb-module"
       ).should("have.text", data.expectedValidMsg);
-
-      cy.logoutOrangeHRM;
     });
   });
 
@@ -33,7 +33,6 @@ describe("Login in testing", () => {
         "have.text",
         data.expectedInvalidMsg
       );
-      cy.logoutOrangeHRM;
     });
   });
 
@@ -46,7 +45,10 @@ describe("Login in testing", () => {
         "have.text",
         data.expectedInvalidMsg
       );
-      cy.logoutOrangeHRM;
     });
+  });
+
+  afterEach(() => {
+    cy.logoutOrangeHRM;
   });
 });
