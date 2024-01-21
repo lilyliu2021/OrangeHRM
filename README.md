@@ -121,7 +121,7 @@ npx cypress run
 ```
 ### 5.Run the specified test file and generate report
 
-- Replace "path/to/your/test-file.spec.js" with the actual path to your specific test file. This command will execute only the specified test file.
+Replace "path/to/your/test-file.spec.js" with the actual path to your specific test file. This command will execute only the specified test file.
 ```
 npx cypress run --spec "path/to/your/test-file.spec.js"
 ```
