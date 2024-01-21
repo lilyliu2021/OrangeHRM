@@ -125,3 +125,20 @@ module.exports = defineConfig({
 import 'cypress-mochawesome-reporter/register';
 
 ```
+4.Run all tests and generate report
+This command is used in Cypress to execute end-to-end tests in headless mode.
+```
+npx cypress run
+
+```
+5.Run the specified test file and generate report
+Replace "path/to/your/test-file.spec.js" with the actual path to your specific test file. This command will execute only the specified test file.
+```
+npx cypress run --spec "path/to/your/test-file.spec.js"
+
+```
+For example :
+```
+npx cypress run -spec C:\OrangeHRM\cypress\e2e\recruitment.cy.js
+```
+![Sample test report:](../images/candidateTestReport.png)
