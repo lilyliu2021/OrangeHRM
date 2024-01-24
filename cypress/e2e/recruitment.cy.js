@@ -54,7 +54,7 @@ describe("Recruitment testing", () => {
     cy.get(".oxd-table-cell-actions > :nth-child(2) > .oxd-icon").click();
 
     cy.xpath('//button[normalize-space()="Yes, Delete"]').click();
-    cy.log("User is deleted!");
+    cy.log("Candidate is deleted!");
   });
 
   after(()=>{
